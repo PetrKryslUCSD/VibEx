@@ -48,11 +48,11 @@ function sdof_damped_forced_forces
         All.group ={};
         Glyph= glyph_circle(2*f0,Gray,'none');
         All= append(All,Glyph);
-        g= glyph_vector( [0, 0],[f0, 0], ArrowSize);
+        g= glyph_vector( [0, 0],[-f0, 0], ArrowSize);
         g.linewidth =3;
         g.edgecolor ='k';
         All= append(All,g);
-        g= GPath_text([f0, 0]*1.05, 'Force');
+        g= GPath_text([-f0, 0]*1.15, 'Force');
         All= append(All,g);
         if (abs(Fk)>0)
             g= glyph_vector( [0, 0],[real(Fk), imag(Fk)], ArrowSize);
