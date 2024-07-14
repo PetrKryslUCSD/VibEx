@@ -16,7 +16,7 @@ function sdof_damped_TF_GEN
     % UNDAMPED oscillator.  The  magnification factor is the ratio of the
     % amplitude of the dynamic displacement compared to the study
     % displacement.  The phase shift is between  the applied force and the
-    % displacement.
+    % displacement (displacement lags the force).
 
     
     % Assume an undamped system as a default
@@ -66,6 +66,8 @@ function sdof_damped_TF_GEN
             c=zeta*c_cr;
         end
         H=1./double(vpa(subs(-omega.^2*m-1i*omega.*c+k)));
+        % H=(1i*omega)./double(vpa(subs(-omega.^2*m-1i*omega.*c+k)));
+        % H=(1i*omega).^2./double(vpa(subs(-omega.^2*m-1i*omega.*c+k)));
         
         figure(f); clf; hold on
         set(gca,'Units','centimeter')
